@@ -15,7 +15,11 @@ class Teachers:
 
     def date_format_convertor(self, date):
         dt = datetime.strptime(date, '%Y-%m-%d %H:%M:%S')
-        return dt
+        year = dt.year
+        month = dt.month
+        day = dt.day
+
+        return [year, month, day]
     def add_jalali_date_to_teacher_frame(self):
         date_create = self.get_date_created()
         print(date_create)
