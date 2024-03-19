@@ -13,5 +13,5 @@ class Teachers:
         return self.teacher_frame['date_created']
 
 #print(JalaliDate.to_jalali(2013, 9, 16))
-T1 = Teachers
+T1 = Teachers()
 print(T1.get_date_created())
