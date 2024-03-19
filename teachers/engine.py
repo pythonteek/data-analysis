@@ -34,7 +34,11 @@ class Teachers:
         self.add_jalali_date_to_teacher_frame()
         df = self.teacher_frame['jalali_date_created']
         for t in df:
-            print(t)
+            curr_year = t.year
+            curr_month = t.month
+
+            y_m = str(curr_year) + "-" + str(curr_month)
+            print(y_m)
 
 #print(JalaliDate.to_jalali(2013, 9, 16))
 T1 = Teachers()
