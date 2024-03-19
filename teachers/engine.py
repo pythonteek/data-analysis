@@ -22,7 +22,8 @@ class Teachers:
         return [year, month, day]
     def add_jalali_date_to_teacher_frame(self):
         date_create = self.get_date_created()
-        print(date_create)
+        for dc in date_create:
+            print(dc)
 
 #print(JalaliDate.to_jalali(2013, 9, 16))
 T1 = Teachers()
