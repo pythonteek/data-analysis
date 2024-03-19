@@ -30,9 +30,13 @@ class Teachers:
 
         self.teacher_frame.insert(2, "jalali_date_created", jalali_date_list, True)
 
+    def number_of_submited_teacher_in_each_month(self):
+        self.add_jalali_date_to_teacher_frame()
+        df = self.teacher_frame['jalali_date_created']
+        for t in df:
+            print(t)
+
 #print(JalaliDate.to_jalali(2013, 9, 16))
 T1 = Teachers()
-print(T1.teacher_frame)
-T1.add_jalali_date_to_teacher_frame()
-print("------------------------")
-print(T1.teacher_frame)
+T1.number_of_submited_teacher_in_each_month()
+
