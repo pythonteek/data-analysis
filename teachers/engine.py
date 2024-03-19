@@ -1,6 +1,7 @@
 import pandas as pd
 from persiantools.jdatetime import JalaliDate
-import datetime
+from datetime import datetime
+
 
 class Teachers:
     def __init__(self):
@@ -12,6 +13,9 @@ class Teachers:
     def get_date_created(self):
         return self.teacher_frame['date_created']
 
+    def date_format_convertor(self, date):
+        dt = datetime.strptime(date, '%Y-%m-%d %H:%M:%S')
+        return dt
     def add_jalali_date_to_teacher_frame(self):
         date_create = self.get_date_created()
         print(date_create)
@@ -19,3 +23,4 @@ class Teachers:
 #print(JalaliDate.to_jalali(2013, 9, 16))
 T1 = Teachers()
 T1.add_jalali_date_to_teacher_frame()
+print(T1.date_format_convertor('2024-02-27 11:53:45'))
