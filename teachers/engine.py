@@ -1,6 +1,8 @@
 import pandas as pd
 from persiantools.jdatetime import JalaliDate
 from datetime import datetime
+from itertools import groupby
+
 
 
 class Teachers:
@@ -33,14 +35,23 @@ class Teachers:
     def number_of_submited_teacher_in_each_month(self):
         self.add_jalali_date_to_teacher_frame()
         df = self.teacher_frame['jalali_date_created']
+        y_m_list = []
         for t in df:
             curr_year = t.year
             curr_month = t.month
 
             y_m = str(curr_year) + "-" + str(curr_month)
-            print(y_m)
+            y_m_list.append(y_m)
+
+        print(y_m_list)
+        res = [list(val) for key, val in groupby(sorted(y_m_list))]
+        resault = []
+        for curr_res in res:
+            r = [curr_res[0], len(curr_res)]
+            resault.append(r)
+
+        return resault
 
 #print(JalaliDate.to_jalali(2013, 9, 16))
 T1 = Teachers()
-T1.number_of_submited_teacher_in_each_month()
-
+print(T1.number_of_submited_teacher_in_each_month())
