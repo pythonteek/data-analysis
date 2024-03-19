@@ -23,9 +23,10 @@ class Teachers:
     def add_jalali_date_to_teacher_frame(self):
         date_create = self.get_date_created()
         for dc in date_create:
-            print(self.date_format_convertor(dc))
+            list_format = self.date_format_convertor(dc)
+            print(JalaliDate.to_jalali(list_format[0], list_format[1], list_format[2]))
 
 #print(JalaliDate.to_jalali(2013, 9, 16))
 T1 = Teachers()
 T1.add_jalali_date_to_teacher_frame()
-print(T1.date_format_convertor('2024-02-27 11:53:45'))
+print(T1.date_format_convertor('2024-03-19 11:53:45'))
