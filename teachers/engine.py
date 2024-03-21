@@ -82,7 +82,3 @@ class Teachers:
             resault.append(r)
 
         return resault
-
-#print(JalaliDate.to_jalali(2013, 9, 16))
-T1 = Teachers()
-print(T1.teachers_major_clasification())
