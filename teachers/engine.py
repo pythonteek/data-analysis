@@ -10,12 +10,15 @@ class Teachers:
         print("Teachers constructor is called!")
         self.teacher_frame = pd.read_csv('datasets/teachers.csv')
 
+    #get head of dataset
     def get_head(self):
         return self.teacher_frame.head()
 
+    #return DATE_CREATED clolumn
     def get_date_created(self):
         return self.teacher_frame['date_created']
 
+    #return %Y-%m-%d %H:%M:%S to array as [year, month, day]
     def date_format_convertor(self, date):
         dt = datetime.strptime(date, '%Y-%m-%d %H:%M:%S')
         year = dt.year
@@ -23,6 +26,9 @@ class Teachers:
         day = dt.day
 
         return [year, month, day]
+
+    #get data from date_format_convertor and convert it to jaali date
+    #this function add new column to dataset
     def add_jalali_date_to_teacher_frame(self):
         date_create = self.get_date_created()
         jalali_date_list = []
@@ -33,8 +39,9 @@ class Teachers:
 
         self.teacher_frame.insert(2, "jalali_date_created", jalali_date_list, True)
 
+    #How many teachers are submited in each month?
     def number_of_submited_teacher_in_each_month(self):
-        self.add_jalali_date_to_teacher_frame()
+        self.add_jalali_date_to_teacher_frame()#add new column to dataset
         df = self.teacher_frame['jalali_date_created']
         y_m_list = []
         for t in df:
@@ -45,30 +52,30 @@ class Teachers:
             y_m_list.append(y_m)
 
         print(y_m_list)
-        res = [list(val) for key, val in groupby(sorted(y_m_list))]
+        res = [list(val) for key, val in groupby(sorted(y_m_list))]#make group
         resault = []
         for curr_res in res:
-            r = [curr_res[0], len(curr_res)]
+            r = [curr_res[0], len(curr_res)]#number of elements in each group
             resault.append(r)
 
         return resault
 
-
+    #Number of teachers with same degree
     def teachers_degree_clasification(self):
         df = self.teacher_frame['educational degree']
         resault = []
-        res = [list(val) for key, val in groupby(sorted(df))]
+        res = [list(val) for key, val in groupby(sorted(df))]#make group
         for curr_res in res:
             r = [curr_res[0], len(curr_res)]
             resault.append(r)
 
         return resault
 
-
+    # Number of teachers with same major
     def teachers_major_clasification(self):
         df = self.teacher_frame['major']
         resault = []
-        res = [list(val) for key, val in groupby(sorted(df))]
+        res = [list(val) for key, val in groupby(sorted(df))]#make group
         for curr_res in res:
             r = [curr_res[0], len(curr_res)]
             resault.append(r)
