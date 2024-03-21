@@ -55,7 +55,13 @@ class Teachers:
 
     def teachers_degree_clasification(self):
         df = self.teacher_frame['educational degree']
-        print(df)
+        resault = []
+        res = [list(val) for key, val in groupby(sorted(df))]
+        for curr_res in res:
+            r = [curr_res[0], len(curr_res)]
+            resault.append(r)
+
+        print(res)
 
 #print(JalaliDate.to_jalali(2013, 9, 16))
 T1 = Teachers()
