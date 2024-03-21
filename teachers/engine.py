@@ -63,6 +63,17 @@ class Teachers:
 
         return resault
 
+
+    def teachers_major_clasification(self):
+        df = self.teacher_frame['major']
+        resault = []
+        res = [list(val) for key, val in groupby(sorted(df))]
+        for curr_res in res:
+            r = [curr_res[0], len(curr_res)]
+            resault.append(r)
+
+        return resault
+
 #print(JalaliDate.to_jalali(2013, 9, 16))
 T1 = Teachers()
-T1.teachers_degree_clasification()
+print(T1.teachers_major_clasification())
