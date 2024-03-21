@@ -7,6 +7,7 @@ from itertools import groupby
 
 class Teachers:
     def __init__(self):
+        print("Teachers constructor is called!")
         self.teacher_frame = pd.read_csv('datasets/teachers.csv')
 
     def get_head(self):
