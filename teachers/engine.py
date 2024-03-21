@@ -61,7 +61,7 @@ class Teachers:
             r = [curr_res[0], len(curr_res)]
             resault.append(r)
 
-        print(resault)
+        return resault
 
 #print(JalaliDate.to_jalali(2013, 9, 16))
 T1 = Teachers()
