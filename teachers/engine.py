@@ -52,6 +52,11 @@ class Teachers:
 
         return resault
 
+
+    def teachers_degree_clasification(self):
+        df = self.teacher_frame['educational degree']
+        print(df)
+
 #print(JalaliDate.to_jalali(2013, 9, 16))
 T1 = Teachers()
-print(T1.number_of_submited_teacher_in_each_month())
+T1.teachers_degree_clasification()
