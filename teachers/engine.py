@@ -52,7 +52,7 @@ class Teachers:
             y_m = str(curr_year) + "-" + str(curr_month)
             y_m_list.append(y_m)
 
-        print(y_m_list)
+        
         res = [list(val) for key, val in groupby(sorted(y_m_list))]# Make group
         resault = []
         for curr_res in res:
